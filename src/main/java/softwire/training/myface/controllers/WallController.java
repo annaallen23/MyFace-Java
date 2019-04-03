@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import softwire.training.myface.models.viewmodels.WallViewModel;
 import softwire.training.myface.services.PostsService;
+import softwire.training.myface.services.UsersService;
 
 import java.security.Principal;
 
@@ -18,10 +19,12 @@ import java.security.Principal;
 public class WallController {
 
     private final PostsService postsService;
+    private final UsersService usersService;
 
     @Autowired
-    public WallController(PostsService postsService) {
+    public WallController(PostsService postsService, UsersService usersService) {
         this.postsService = postsService;
+        this.usersService = usersService;
     }
 
     @RequestMapping(value = "/{wallOwnerUsername}", method = RequestMethod.GET)
@@ -34,6 +37,7 @@ public class WallController {
         wallViewModel.loggedInUsername = principal.getName();
         wallViewModel.wallOwnerUsername = wallOwnerUsername;
         wallViewModel.posts = postsService.getPostsOnWall(wallOwnerUsername);
+        wallViewModel.wallOwnerFullName = usersService.getUserWithUserName(wallOwnerUsername).get().getFullName();
 
         return new ModelAndView("wall", "model", wallViewModel);
     }

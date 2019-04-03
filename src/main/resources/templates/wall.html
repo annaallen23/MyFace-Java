@@ -24,7 +24,7 @@
         </nav>
 
         <div class="limited-width-container">
-            <h1><span th:text="${model.wallOwnerUsername}"></span>'s wall</h1>
+            <h1><span th:text="${model.wallOwnerFullName}"></span>'s wall</h1>
 
             <div th:each="post: ${model.posts}" class="post">
                 <div class="post-sender">
@@ -36,7 +36,7 @@
             </div>
 
 
-            <h1>Write something on <span th:text="${model.wallOwnerUsername}"></span>'s wall!</h1>
+            <h1>Write something on <span th:text="${model.wallOwnerFullName}"></span>'s wall!</h1>
 
             <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post'}">
                 <input type="text" name="content" />

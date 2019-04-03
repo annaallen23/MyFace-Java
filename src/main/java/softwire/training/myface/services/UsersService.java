@@ -13,7 +13,7 @@ public class UsersService extends DatabaseService {
     public List<String> guessAllUsernames() {
         try (Handle handle = jdbi.open()) {
             return handle
-                    .createQuery("(SELECT DISTINCT recipient FROM posts) UNION (SELECT DISTINCT sender FROM posts)")
+                    .createQuery("(SELECT DISTINCT UserName FROM Users)")
                     .mapTo(String.class)
                     .list();
         }
