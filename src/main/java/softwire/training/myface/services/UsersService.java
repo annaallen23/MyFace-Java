@@ -23,7 +23,16 @@ public class UsersService extends DatabaseService {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT * FROM users WHERE UserName = :UserName")
                     .bind("UserName", userName)
-                    .mapToBean(User.class)
+                    .mapToBean(User.class) //mapToBean use if getting more than one column
+                    .findFirst()
+        );
+    }
+
+    public Optional <String> getstoredPasswordForUsername (String userName) {
+        return  jdbi.withHandle(handle ->
+                handle.createQuery("SELECT PasswordPlainText FROM users WHERE UserName = :UserName")
+                    .bind("UserName", userName)
+                    .mapTo(String.class) //mapTo use if only getting one column
                     .findFirst()
         );
     }

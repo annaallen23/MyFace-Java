@@ -1,16 +1,29 @@
 package softwire.training.myface.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import softwire.training.myface.services.UsersService;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    private final UsersService usersService;
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public CustomAuthenticationProvider(UsersService usersService, PasswordEncoder passwordEncoder) {
+        this.usersService = usersService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -19,9 +32,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = authentication.getCredentials().toString();
 
 
-        // TODO: Implement real authentication!
+        Optional <String> correctPassword = usersService.getstoredPasswordForUsername(username);
 
-        if (!password.equals("secret")) {
+        if (!correctPassword.isPresent() || !passwordEncoder.matches(password, correctPassword.get())) {
             throw new BadCredentialsException("Incorrect password");
         }
 

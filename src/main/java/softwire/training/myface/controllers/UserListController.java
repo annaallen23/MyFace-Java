@@ -1,6 +1,7 @@
 package softwire.training.myface.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,11 +15,15 @@ import java.security.Principal;
 public class UserListController {
 
     private final UsersService usersService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserListController(UsersService usersService) {
+    public UserListController(UsersService usersService, PasswordEncoder passwordEncoder) {
         this.usersService = usersService;
+        this.passwordEncoder = passwordEncoder;
     }
+
+
 
     @RequestMapping(value = "")
     public ModelAndView getAllWalls(Principal principal) {
