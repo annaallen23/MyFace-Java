@@ -31,7 +31,7 @@ public class NewUserController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public RedirectView signUp (@ModelAttribute User user, RedirectAttributes attributes){
+    public RedirectView signUp (@ModelAttribute User user){
 
         Optional<User> existingUser = usersService.getUserWithUserName(user.getUserName());
 
