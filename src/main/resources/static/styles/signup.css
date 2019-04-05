@@ -1,3 +1,8 @@
+@font-face {
+    font-family: myCoffeeFont;
+    src: url('../Fonts/Coffee.ttf') format("truetype");
+}
+
 .form-row {
     margin: 5px 0;
 }
@@ -23,6 +28,7 @@ input[type=submit] {
     color: white;
     border: none;
     font-size: 16px;
+    font-family: myCoffeeFont, sans-serif;
 }
 input[type=submit]:hover {
     background-color: darkslateblue;
