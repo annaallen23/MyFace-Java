@@ -5,32 +5,48 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/styles/myface.css" />
         <link rel="stylesheet" type="text/css" href="/styles/users.css" />
-        <title>Users :: My🙂Face</title>
+        <title>Users :: Coffee Connoisseur </title>
     </head>
 
     <body>
         <nav>
             <div class="nav-inner">
-                <a href="/" class="brand">My🙂Face</a>
+                <a href="/" class="brand">Coffee Connoisseur </a>
 
                 <a href="/users" class="nav-link">Users</a>
 
                 <div class="nav-align-right">
                     <a th:href="${'/wall/' + model.loggedInUsername}"
                        class="nav-link"
-                       th:text="${'🙂 ' + model.loggedInUsername}"></a>
+                       th:text="${' ' + model.loggedInUsername}"></a>
+                    </div>
                 </div>
-            </div>
         </nav>
-
+        <div class="reallyresponsive">
         <div class="limited-width-container">
-            <h1>Say Hi to all the My🙂Face users!</h1>
+            <div class="jumbotron">
+            <h1>Meet our Coffee Connoisseurs</h1>
 
             <p th:each="username: ${model.allUsernames}" class="user-link">
-                🙂
+                <img height="40px" width="60px" src="/images/coffeebean.png" alt="logo"/>
                 <a th:text="${username}" th:href="${'/wall/' + username}"></a>
             </p>
+            </div>
+            <div class="jumbotron1">
+                     <h1>Hot in the Press...</h1>
+                     <a href="https://dailycoffeenews.com">
+                        <img id="link1" class="image" alt="Top 30 Coffees in the World" src="https://vrteje8p14-flywheel.netdna-ssl.com/wp-content/themes/dailycoffeenews/img/Daily-Coffee-News-Logo.png" />
+                        </a>
+                    <div class="container">
+                        <a href="https://greenglobaltravel.com/best-coffee-around-the-world-2/">
+                            <img id="link" class="image" alt="Top 30 Coffees in the World" src="https://greenglobaltravel.com/wp-content/uploads/2012/12/Best-Coffee-In-The-World.jpg"  />
+                        </a>
+                        <div class="overlay">Take me to see the top 30 Coffees in the World</div>
+                    </div>
+            </div>
+            </div>
         </div>
-
+            <div class="clearfix"></div>
+            <div style="padding: 6px;"></div>
     </body>
 </html>

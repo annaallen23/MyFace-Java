@@ -6,35 +6,82 @@
 .post-sender {
     font-size: 18px;
     font-weight: bold;
-    color: #666;
+    color: darkslategrey;
     margin-bottom: 5px;
 }
 
 .post-sender a {
-    color: #4682b4;
+    color: darkslategrey;
 }
 .post-sender a:hover {
-    color: #386699;
+    color: darkslateblue;
 }
 
 
 input[type=text] {
-    width: 500px;
-    border: 1px solid steelblue;
+    width: 75%;
+    border: 1px solid darkslategrey;
     border-radius: 15px;
     padding: 5px 10px;
     outline: none;
 }
 
 input[type=submit] {
-    background-color: #4682b4;
+    background-color: darkslategrey;
     padding: 8px 16px;
     margin-right: 20px;
     border-radius: 5px;
     color: white;
     border: none;
     font-size: 16px;
+
 }
 input[type=submit]:hover {
-    background-color: #386699;
+    background-color: darkslategrey;
 }
+
+.reactions {
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+}
+#pic {
+    position: relative;
+    align-items: flex-end;
+    margin-left: 150px;
+    margin-top: 10px;
+}
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+    color: darkslategrey;
+    border-style: double;
+    border-width: 3px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(47, 79, 79);
+    background: rgba(47, 79, 79, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 40%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 154px;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+
+

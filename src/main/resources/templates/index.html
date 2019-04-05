@@ -2,24 +2,51 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="/styles/myface.css" />
-        <title>Home Page :: My🙂Face</title>
+        <link rel="stylesheet" type="text/css" href="/styles/signup.css" />
+        <title>Home Page :: Coffee Connoisseur</title>
     </head>
 
     <body>
         <nav>
             <div class="nav-inner">
-                <a href="/" class="brand">My🙂Face</a>
+                <a href="/" class="brand">Coffee Connoisseur</a>
+
             </div>
         </nav>
-
+        <div class="reallyresponsive">
         <div class="limited-width-container">
-            <h1>Welcome to My🙂Face</h1>
+            <div class="jumbotron">
+            <h1>Welcome to Coffee Connoisseur <img height="40px" width="60px" src="/images/coffeebean.png" alt="logo"/></h1>
+                <h3> Log In to share your favourite roasts and your best brewing tips and tricks</h3>
             <a href="/users" class="button">
                 Login
             </a>
-            <a href="/signup" class="button">
-                Sign Up
-            </a>
+            </div>
+            <div class="jumbotron1">
+                <h1>Sign Up to Coffee Connoisseur <img height="40px" width="60px" src="/images/coffeebean.png" alt="logo"/></h1>
+
+                <form method="post" action="/signup">
+                    <div class="form-row">
+                        <label for="username_box">Username:</label>
+                        <input type="text" name="userName" id="username_box"/>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="password_box">Password:</label>
+                        <input type="password" name="passwordPlainText" id="password_box"/>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="fullname_box">Full Name:</label>
+                        <input type="text" name="fullName" id="fullname_box"/>
+                    </div>
+
+                    <input class="button" type="submit" value="Sign up!" />
+                </form>
+        </div>
+                <div class="clearfix"></div>
+                <div style="padding: 6px;"></div>
+        </div>
         </div>
     </body>
 </html>

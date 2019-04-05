@@ -7,7 +7,6 @@ public class Post {
     private String recipient;
     private String content;
 
-
     public int getId() {
         return id;
     }

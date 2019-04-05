@@ -4,8 +4,55 @@
 
 .user-link a {
     font-weight: bold;
-    color: #4682b4;
+    color: darkslategrey;
 }
 .user-link a:hover {
-    color: #386699;
+    color: darkslateblue;
+}
+#link {
+    position: relative;
+    align-items: flex-end;
+    margin-left: 70px;
+    margin-top: 10px;
+    width:80%;
+    height: 30%;
+}
+#link1 {
+    position: relative;
+    align-items: flex-end;
+    margin-left: 70px;
+    margin-top: 10px;
+    width:80%;
+    height: 30%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+    color: darkslategrey;
+    border-style: double;
+    border-width: 3px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(47, 79, 79);
+    background: rgba(47, 79, 79, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 77%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-left: 73px;
+}
+
+.container:hover .overlay {
+    opacity: 1;
 }

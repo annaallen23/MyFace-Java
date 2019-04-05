@@ -1,6 +1,12 @@
-* {
-    box-sizing: border-box;
+@font-face {
+    font-family: myCoffeeFont;
+    src: url('../Fonts/Coffee.ttf') format("truetype");
 }
+
+
+/* {
+    box-sizing: border-box;
+}*/
 
 html, body {
     margin: 0;
@@ -11,23 +17,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: sans-serif;
+    font-family: myCoffeeFont, sans-serif;
+    background-image: url(https://i.pinimg.com/originals/a7/f2/22/a7f222dc0c5ec8a56bbe82cf846185cf.jpg);
+    background-size: 100%;
 }
 
 nav {
     width: 100%;
     height: 60px;
-    background-color: steelblue;
+    background-color: darkslategrey;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .nav-inner {
     width: 100%;
-    max-width: 800px;
+    max-width: 100px;
 
     display: flex;
     flex-direction: row;
@@ -37,6 +46,7 @@ nav {
 .nav-align-right {
     flex-grow: 1;
     text-align: right;
+    margin-right: -30px;
 }
 
 
@@ -53,11 +63,16 @@ nav a:hover {
 }
 
 .nav-link {
-    font-size: 20px;
+    font-size: 24px;
+    position: absolute;
+    margin-left: 500px;
 }
 
 .brand {
-    font-size: 24px;
+    font-size: 36px;
+    position: absolute;
+    left: 20px;
+    margin-top: -10px;
 }
 
 
@@ -71,12 +86,80 @@ h1 {
 }
 
 .button {
-    background-color: #4682b4;
+    background-color: darkslategrey;
     padding: 8px 16px;
     margin-right: 20px;
     border-radius: 5px;
     color: white;
+    float: left;
 }
 .button:hover {
-    background-color: #386699;
+    background-color: darkslateblue;
+}
+.jumbotron {
+    width: 40%;
+    background-color: #e9ecef;
+    border-radius: 30px;
+    padding: 50px 30px;
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    margin-left: 50px;
+    min-width: 392px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.jumbotron1 {
+    width: 40%;
+    background-color: #e9ecef;
+    border-radius: 30px;
+    padding: 50px 30px;
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    margin-left: 50px;
+    min-width: 392px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.reallyresponsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media screen and (max-width: 700px) {
+    .reallyresponsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .reallyresponsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    height: 200px;
+    width: 400px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
 }

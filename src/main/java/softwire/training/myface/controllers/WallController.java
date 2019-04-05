@@ -73,13 +73,44 @@ public class WallController {
         if (currentUser.equals(sender) || currentUser.equals(recipient)) {
             postsService.deletePost(id);
             return new RedirectView("/wall/" + wallOwnerUsername);
-        }else{
+        } else {
             throw new AccessDeniedException("Only the sender or recipient can delete the post!");
 
         }
+    }
 
+    @RequestMapping(value = "/{wallOwnerUsername}/wave", method = RequestMethod.POST)
+            public RedirectView waveAt(
+                    @PathVariable("wallOwnerUsername") String wallOwnerUsername,
+                    Principal loggedInUserPrincipal
+    ) {
+        String senderUsername = loggedInUserPrincipal.getName();
+        postsService.createPost(senderUsername, wallOwnerUsername, "\uD83D\uDC4B" );
+
+        return new RedirectView("/wall/" + wallOwnerUsername);
 
 
     }
 
+    @RequestMapping(value = "/{wallOwnerUsername}/frown", method = RequestMethod.POST)
+    public RedirectView frownAt(
+            @PathVariable("wallOwnerUsername") String wallOwnerUsername,
+            Principal loggedInUserPrincipal
+    ) {
+        String senderUsername = loggedInUserPrincipal.getName();
+        postsService.createPost(senderUsername, wallOwnerUsername, "\uD83D\uDE26");
+
+        return new RedirectView("/wall/" + wallOwnerUsername);
+    }
+
+    @RequestMapping(value = "/{wallOwnerUsername}/like", method = RequestMethod.POST)
+    public RedirectView likeAt(
+            @PathVariable("wallOwnerUsername") String wallOwnerUsername,
+            Principal loggedInUserPrincipal
+    ) {
+        String senderUsername = loggedInUserPrincipal.getName();
+        postsService.createPost(senderUsername, wallOwnerUsername, "\uD83D\uDC4D");
+
+        return new RedirectView("/wall/" + wallOwnerUsername);
+    }
 }
